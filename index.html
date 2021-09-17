@@ -13,7 +13,8 @@
             var vKosten;
             var vErloes;
             var vGewinn;
-            var vBemerkung;
+            var vBEP;
+            var vGewinnschwelle;
             var vAusgabe;
 
             vMenge = parseFloat(document.getElementById("idMenge").value);
@@ -31,24 +32,25 @@
                 vErloes = vStart * vStueckpreis;
                 vGewinn = vErloes - vKosten;
                 if (vGewinn<0) {
-                    vBemerkung = "Verlustzone";
-                vAusgabe = vAusgabe + "<tr><td>" + vStart + "</td><td>" + vKosten + "</td><td>"+ vErloes + "</td><td style= color:red>" + vGewinn + "</td><td>" + vBemerkung + "</td></tr>";
+                   
+                vAusgabe = vAusgabe + "<tr><td>" + vStart + "</td><td>" + vKosten + "</td><td>"+ vErloes + "</td><td style= color:red>" + vGewinn + "</td><td> Verlustzone </td></tr>";
                 }else{
-                vBemerkung = "Gewinnzone";
-                vAusgabe = vAusgabe + "<tr><td>" + vStart + "</td><td>" + vKosten + "</td><td>"+ vErloes + "</td><td>" + vGewinn + "</td><td>" + vBemerkung + "</td></tr>";
+                
+                vAusgabe = vAusgabe + "<tr><td>" + vStart + "</td><td>" + vKosten + "</td><td>"+ vErloes + "</td><td>" + vGewinn + "</td><td> Gewinnzone </td></tr>";
             }
                 vStart=vStart + 1000;
 
             }
 
             vAusgabe = vAusgabe + "</table><br><br>";
-		
-		vBEP = vKfix / (vStueckpreis-vKvariabel);
+
+            vBEP = vKfix / (vStueckpreis-vKvariabel);
 
             vGewinnschwelle = vBEP * vStueckpreis;
 
             vAusgabe = vAusgabe + "Break-Even-Point: " + vBEP + " Stück<br>";
             vAusgabe = vAusgabe + "Gewinnschwelle: " + vGewinnschwelle + "€"
+
             document.getElementById("idAusgabe").innerHTML = vAusgabe;
 
         }
