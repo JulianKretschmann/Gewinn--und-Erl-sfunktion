@@ -41,7 +41,14 @@
 
             }
 
-            vAusgabe = vAusgabe + "</table>";
+            vAusgabe = vAusgabe + "</table><br>";
+		
+		vBEP = vKfix / (vStueckpreis-vKvariabel);
+
+            vGewinnschwelle = vBEP * vStueckpreis;
+
+            vAusgabe = vAusgabe + "Break-Even-Point: " + vBEP + " Stück<br>";
+            vAusgabe = vAusgabe + "Gewinnschwelle: " + vGewinnschwelle + "€"
             document.getElementById("idAusgabe").innerHTML = vAusgabe;
 
         }
